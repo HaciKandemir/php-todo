@@ -11,6 +11,7 @@
 	session_start();
 	include('config.php');
 	include('todoList.php');
+	require('vendor/autoload.php');
 
 	$app = new TodoList( date('Ymd') );
 
