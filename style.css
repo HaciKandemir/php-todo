@@ -38,6 +38,9 @@ ul{
 	padding-left: 40px;
 	cursor: pointer;
 }
+.list li:first-child{
+	cursor: default;
+}
 .list li:hover, #first:hover #input {
 	background-color: #f0f0f0;
 	-webkit-transition: all 0.2s;

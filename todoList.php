@@ -1,5 +1,4 @@
 <?php
-
 class TodoList {
 
     private $todolistName;
@@ -54,9 +53,27 @@ class TodoList {
     	}
     }
 
-    // status change
-    public function statusChange(){
+    // sort change
+    public function customSort(int $oldPosition, int $newPosition){
+        $temp = $this->myTodoList[$oldPosition];    
+        if ($newPosition>$oldPosition) {
+            // yukarıdan aşağıya taşıma    
+            for ($i=$oldPosition; $i < $newPosition; $i++) { 
+                $this->myTodoList[$i] = $this->myTodoList[$i+1];
+            }
+        }elseif($newPosition<$oldPosition){
+            // aşağıdan yukarıya taşıma
+            for ($i=$oldPosition; $i > $newPosition; $i--) { 
+                $this->myTodoList[$i] = $this->myTodoList[$i-1]; 
+            }
+        }
+        $this->myTodoList[$newPosition] = $temp;
+        $this->save();
+    }
 
+    //get db file name
+    public function getTodoName(){
+        return $this->todolistName;
     }
 
     // save file
