@@ -91,7 +91,7 @@ $(function() {
 	self.sendUpdatedIndex = function ($item) {
 		var startIndis = $item.data("startindis");
 		var newIndis = itemCount - $item.index();
-		if (newIndis != startIndis) {
+		if (newIndis !== startIndis) {
 			console.log(" oldIndis: ",startIndis," newIndis: ",newIndis);
 			$.post(
 				"index.php",
@@ -99,7 +99,7 @@ $(function() {
 			);
 			// url lerdeki idlerin güncellenmesi için f5 atıyorum.
 			// yapılmazsa silme ve düzenleme işlemleri başka elemana uygulanır.
-			window.location.reload(true);;
+			window.location.reload(true);
 		}
 	}
 });
