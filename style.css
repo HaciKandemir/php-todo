@@ -81,7 +81,7 @@ span{
 	transition: opacity 0.5s, transform 0.5s;
 }
 li>span{
-	visibility: : hidden;
+	visibility: hidden;
 	opacity: 0;
 	transform: translateX(150px);
 }
