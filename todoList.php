@@ -2,7 +2,7 @@
 class TodoList {
 
     private $todolistName;
-    private array $myTodoList;
+    private $myTodoList;
     private $db;
 
     // init

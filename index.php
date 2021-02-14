@@ -15,26 +15,25 @@
 	require('vendor/autoload.php');
 	
 	$app = new TodoList( date('Ymd') );
-	//$todolist = array_reverse($app->getTodos());
 	$todolist = $app->getTodos();
 
 	$reqMethod = $_SERVER['REQUEST_METHOD'];
 	if ($reqMethod === 'POST') {
-		// yeni todo ekle
+		// yeni to-do ekle
 		if (isset($_POST['ekle']) && !empty($_POST['mytask'])) {
 			$app->add($_POST['mytask'], $_POST['status']=='on'?1:0);
 		}
-		// todo güncelle
+		// to-do güncelle
 		if (isset($_POST['update']) && !empty($_POST['mytask'])) {
 			$app->update($_SESSION['task_id'], $_POST['mytask'], $_POST['status']=='on'?1:0);
 			session_destroy();
 		}
-		// todo sıralamasını değiştir
+		// to-do sıralamasını değiştir
 		if (isset($_POST["oldIndis"]) && isset($_POST["newIndis"])) {
 			$app->customSort($_POST["oldIndis"], $_POST["newIndis"]);
 		}
 	}else if($reqMethod === 'GET'){
-		// todo sil
+		// to-do sil
 		if ($_GET['action']==='delete' && !empty($_GET['id'])) {
 			$app->delete($_GET['id']);
 		}
@@ -63,12 +62,7 @@
 		 	echo '<li>'.($v[1]==1?"<del>$v[0]</del>":$v[0]).'<span>
 			<a href="?action=delete&id='.($j).'">Sil</a>
 			<a href="?action=update&id='.($j).'">Düzenle</a></span></li>';
-		 } 
-		/*foreach($todolist as $k=>$v){
-			echo '<li>'.($v[1]==1?"<del>$v[0]</del>":$v[0]).'<span>
-			<a href="?action=delete&id='.($k+1).'">Sil</a>
-			<a href="?action=update&id='.($k+1).'">Düzenle</a></span></li>';
-		}*/
+		 }
 		?>
 	</ul>
 </div>

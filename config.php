@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 class Config {
 	
 	private $dbPath = 'data'.DIRECTORY_SEPARATOR;
@@ -18,7 +19,7 @@ class Config {
 	}
 
 	private function dirCreate(){
-		mkdir($dbPath);
+		mkdir($this->dbPath);
 	}
 
 	private function dbCreate(string $dbName){
